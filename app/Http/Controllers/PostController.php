@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function method () {
-        $posts = [
-            'First title',
-            'Second title',
-            'Third title',
-            'Fourd title',
-        ];
+        
+        $posts = Post::select('title')->get();
 
         return view('blog', compact('posts'));
     }
